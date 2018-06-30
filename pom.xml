@@ -9,7 +9,6 @@
 		<version>2.0.3.RELEASE</version>
 	</parent>
 	<artifactId>spring-boot-sample-web-static</artifactId>
-	<packaging>war</packaging>
 	<name>Spring Boot Web Static Sample</name>
 	<description>Spring Boot Web Static Sample</description>
 	<properties>
