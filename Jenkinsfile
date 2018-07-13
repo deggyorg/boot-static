@@ -72,6 +72,7 @@ spec:
             steps {
                 container('kubectl') {
                     script {
+                        kubectlLogin()
                         kubectlDeploy('src/kubernetes/spec', ["SERVICE_NAME=${CI_SERVICE_NAME}", "IMAGE_NAME=${CI_IMAGE_NAME}"])
                     }
                 }
