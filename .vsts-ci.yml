@@ -26,8 +26,3 @@ steps:
     dockerRegistryConnection: dockerhub
     action: 'Push an image'
     imageName: 'timwebster9/boot-app-static:$(Build.BuildId)'
-
-
-
-
-
