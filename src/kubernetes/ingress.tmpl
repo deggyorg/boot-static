@@ -1,16 +1,16 @@
-apiVersion: extensions/v1beta1
-kind: Ingress
+kind: Service
+apiVersion: v1
 metadata:
   name: ${SERVICE_NAME}-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/add-base-url: "true"
+  namespace: default
+  labels:
+    app: ${SERVICE_NAME}
 spec:
-  rules:
-  - host: buildit-jenkins.portworx.zone
-    http:
-      paths:
-      - path: /${SERVICE_NAME}
-        backend:
-          serviceName: ${SERVICE_NAME}
-          servicePort: 80
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+  selector:
+    app: ${SERVICE_NAME}
+  ports:
+  - name: http
+    port: 8088
+    targetPort: 8080
